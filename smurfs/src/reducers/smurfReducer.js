@@ -2,6 +2,7 @@ import {
   FETCH_SMURF_START,
   FETCH_SMURF_SUCCESS,
   FETCH_SMURF_ERROR,
+  ADD_SMURF
 } from "../actions/smurfActions";
 
 const initialState = {
@@ -23,7 +24,12 @@ export function smurfReducer(state = initialState, action) {
         smurfs: action.payload,
         loading: false,
       };
-    case FETCH_SMURF_ERROR:
+    case ADD_SMURF:
+      return{
+        ...state,
+       loading: false,
+       smurfs: action.payload
+      }
 
     default:
       return state;
